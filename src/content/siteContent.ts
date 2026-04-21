@@ -1,0 +1,251 @@
+export type NavItem = {
+  id: string;
+  label: string;
+};
+
+export type BenefitCard = {
+  title: string;
+  description: string;
+  details: string[];
+  focus: string;
+};
+
+export type ScheduleSession = {
+  venue: string;
+  time: string;
+  className?: string;
+};
+
+export type ScheduleDay = {
+  key: "monday" | "tuesday" | "wednesday" | "thursday";
+  label: string;
+  sessions: ScheduleSession[];
+};
+
+export type Review = {
+  name: string;
+  context: string;
+  text: string;
+};
+
+export type FaqItem = {
+  question: string;
+  answer: string;
+};
+
+export const siteContent = {
+  brand: {
+    name: "Coach Hajare",
+    instagramHandle: "@coach_hajare",
+    instagramUrl: "https://www.instagram.com/coach_hajare/",
+    instagramDmUrl: "https://ig.me/m/coach_hajare",
+    discoveryMessage:
+      "Bonjour Hajare, je vous contacte pour une s\u00e9ance d\u00e9couverte. J'aimerais en savoir plus sur votre m\u00e9thode et vos disponibilit\u00e9s \u00e0 Paris.",
+  },
+  seo: {
+    title: "Coach Hajare | M\u00e9thode HH\u2122 \u2014 Posture, silhouette tonique et allure \u00e0 Paris",
+    description:
+      "Coach dipl\u00f4m\u00e9e BPJEPS \u00e0 Paris. La M\u00e9thode HH\u2122 \u2014 Hexis Harmonia am\u00e9liore posture, tonus, alignement et allure, en studio, en club ou \u00e0 domicile.",
+    canonicalPath: "/",
+    ogImage: "/hero.jpg",
+    ogImageAlt: "Coach Hajare a Paris, posture, silhouette tonique et allure maitrisee",
+  },
+  nav: [
+    { id: "hero", label: "Accueil" },
+    { id: "about", label: "\u00c0 propos" },
+    { id: "method", label: "M\u00e9thode" },
+    { id: "pricing", label: "Planning" },
+    { id: "reviews", label: "Avis" },
+    { id: "social", label: "Contact" },
+  ] as NavItem[],
+  hero: {
+    locationLabel: "Paris : domicile - studio",
+    kicker: "Coach dipl\u00f4m\u00e9e BPJEPS \u2022 M\u00e9thode HH\u2122",
+    title: "Retrouvez une posture forte, une silhouette tonique et une allure ma\u00eetris\u00e9e",
+    subtitle:
+      "Coach dipl\u00f4m\u00e9e BPJEPS, Hajare vous accompagne \u00e0 Paris avec sa M\u00e9thode HH\u2122 \u2014 Hexis Harmonia, une approche pr\u00e9cise du mouvement pour sculpter le corps, am\u00e9liorer la posture et r\u00e9v\u00e9ler une pr\u00e9sence plus align\u00e9e.",
+    reassurance: "Cours \u00e0 Paris en studio, en club ou \u00e0 domicile.",
+    primaryCtaLabel: "D\u00e9couvrir la m\u00e9thode",
+    secondaryCtaLabel: "DM pour s\u00e9ance d\u00e9couverte",
+  },
+  presentation: {
+    greeting: "COACH HAJARE\nM\u00c9THODE HH\u2122",
+    description:
+      "Coach dipl\u00f4m\u00e9e BPJEPS, Hajare accompagne un travail du mouvement pr\u00e9cis, \u00e9l\u00e9gant et intelligent, pens\u00e9 pour redresser la posture, tonifier la silhouette et affiner l'allure.\n\nChaque s\u00e9ance s'appuie sur le contr\u00f4le, l'alignement et la conscience corporelle pour construire un corps plus fort, plus stable et plus confiant, sans brutalit\u00e9 ni effets de mode.",
+    quickInfo: [
+      "Approche : posture, tonus, alignement et pr\u00e9cision du mouvement",
+      "Paris : domicile - studio",
+    ],
+    portraitAlt: "Coach Hajare",
+    portraitSrc: "/hero.jpg",
+  },
+  method: {
+    subtitle:
+      "Une signature de mouvement qui conjugue pr\u00e9cision, pr\u00e9sence corporelle et renforcement intelligent.",
+    signatureTitle: "Faire mieux, pas plus.",
+    body:
+      "La M\u00e9thode HH\u2122 \u2014 Hexis Harmonia est une approche du mouvement qui ne cherche pas \u00e0 faire plus, mais \u00e0 faire mieux. Chaque geste est pens\u00e9, chaque posture a un r\u00f4le, chaque s\u00e9ance vise un corps plus fort, plus tonique, plus \u00e9l\u00e9gant et mieux align\u00e9.",
+    detail:
+      "Le travail associe respiration, contr\u00f4le et intensit\u00e9 ma\u00eetris\u00e9e pour transformer la mani\u00e8re de se tenir, de bouger et d'habiter son corps avec plus de nettet\u00e9, de stabilit\u00e9 et de fluidit\u00e9.",
+    note:
+      "L'accompagnement cherche moins l'accumulation que la justesse : des seances precises, un rythme maitrise, et une transformation qui se construit avec finesse.",
+  },
+  services: [
+    {
+      title: "Am\u00e9liorer la posture",
+      description:
+        "Un travail cibl\u00e9 pour replacer le corps, stabiliser l'axe et gagner en tenue au quotidien.",
+      details: [
+        "Ouverture plus naturelle du buste",
+        "Meilleure sensation d'appui",
+        "Silhouette plus \u00e9quilibr\u00e9e",
+      ],
+      focus: "Placement, stabilit\u00e9, conscience corporelle",
+    },
+    {
+      title: "Tonifier la silhouette",
+      description:
+        "Des s\u00e9ances con\u00e7ues pour renforcer en profondeur et dessiner le corps avec subtilit\u00e9.",
+      details: [
+        "Activation cibl\u00e9e des zones cl\u00e9s",
+        "Tonus plus visible sans rigidit\u00e9",
+        "Travail pr\u00e9cis et progressif",
+      ],
+      focus: "Taille, centre, jambes et posture globale",
+    },
+    {
+      title: "Travailler l'allure",
+      description:
+        "La posture ne se voit pas seulement de face : elle s'exprime dans la d\u00e9marche, la pr\u00e9sence et la fa\u00e7on d'entrer dans l'espace.",
+      details: [
+        "Pr\u00e9sence corporelle plus assur\u00e9e",
+        "Lignes plus nettes",
+        "Mouvement plus \u00e9l\u00e9gant",
+      ],
+      focus: "Maintien, d\u00e9marche, expression du corps",
+    },
+    {
+      title: "Lib\u00e9rer les compensations inutiles",
+      description:
+        "Identifier les habitudes de mouvement qui freinent la progression et r\u00e9organiser le corps avec intelligence.",
+      details: [
+        "Moins d'efforts parasites",
+        "Gestes plus justes",
+        "Corps plus disponible",
+      ],
+      focus: "Alignement, mobilit\u00e9 utile, pr\u00e9cision",
+    },
+    {
+      title: "Renforcer en finesse",
+      description:
+        "Une intensit\u00e9 ma\u00eetris\u00e9e qui construit de la force sans tomber dans l'agressivit\u00e9 ni le surmenage.",
+      details: [
+        "Renforcement profond",
+        "Progression durable",
+        "Qualit\u00e9 d'ex\u00e9cution prioritaire",
+      ],
+      focus: "Ma\u00eetrise, endurance, contr\u00f4le du geste",
+    },
+    {
+      title: "Reprendre confiance dans son corps",
+      description:
+        "Retrouver de la clart\u00e9 dans ses sensations et une relation plus sereine, plus ma\u00eetris\u00e9e \u00e0 son propre mouvement.",
+      details: [
+        "Corps mieux compris",
+        "Sensations plus fines",
+        "Pr\u00e9sence plus confiante",
+      ],
+      focus: "Aisance, stabilit\u00e9 et sentiment de ma\u00eetrise",
+    },
+  ] as BenefitCard[],
+  schedule: [
+    {
+      key: "monday",
+      label: "Lundi",
+      sessions: [{ venue: "Yoze-Meli\u00e1", time: "18h45" }],
+    },
+    {
+      key: "tuesday",
+      label: "Mardi",
+      sessions: [
+        { venue: "Club Lulu", time: "7h45" },
+        { venue: "Club Lulu", time: "9h00" },
+      ],
+    },
+    {
+      key: "wednesday",
+      label: "Mercredi",
+      sessions: [
+        { venue: "Studio Sensa", time: "8h15" },
+        { venue: "Usine Saint-Lazare", time: "18h30", className: "Posture" },
+        { venue: "Usine Saint-Lazare", time: "19h15", className: "Burn and Strength" },
+        { venue: "Usine Saint-Lazare", time: "20h00", className: "Core Ballet" },
+      ],
+    },
+    {
+      key: "thursday",
+      label: "Jeudi",
+      sessions: [
+        { venue: "Usine Op\u00e9ra", time: "18h30", className: "Pilates" },
+        { venue: "Usine Op\u00e9ra", time: "19h30", className: "Boxe" },
+      ],
+    },
+  ] as ScheduleDay[],
+  scheduleNote: "Cours \u00e0 Paris en studio, en club ou \u00e0 domicile.",
+  reviews: [
+    {
+      name: "\u00c9l\u00e8ve du Meli\u00e1",
+      context: "Paris",
+      text:
+        "Bonjour Prof !\nJe suis l'Argentine qui participe \u00e0 vos cours au Meli\u00e1.\nJe tenais \u00e0 vous remercier pour les cours dispens\u00e9s ces deux derniers mois. Je faisais d\u00e9j\u00e0 du Pilates Reformer avant, mais je n'avais jamais obtenu une transformation physique aussi importante gr\u00e2ce \u00e0 des cours.\nEn deux mois, je me sens beaucoup mieux et je tenais vraiment \u00e0 vous remercier.",
+    },
+    {
+      name: "\u00c9l\u00e8ve Pilates",
+      context: "Paris",
+      text:
+        "Honn\u00eatement Hajare, j'ai test\u00e9 plusieurs cours de pilates avec diff\u00e9rents professeurs, mais tu restes de loin la meilleure.\nTa fa\u00e7on d'expliquer et ta m\u00e9thode sont uniques, on ne retrouve \u00e7a nulle part ailleurs.\nJ'ai vraiment h\u00e2te de reprendre les cours avec toi.",
+    },
+    {
+      name: "Cliente r\u00e9guli\u00e8re",
+      context: "Paris",
+      text:
+        "Je voulais te dire merci pour le pilates. Je me sens magnifique \u00e0 chaque fois que j'ai un cours avec toi.\nJ'aime beaucoup ta fa\u00e7on de travailler : chaque mouvement est r\u00e9fl\u00e9chi et efficace. On ne bouge pas juste pour bouger.\nOn prend notre temps. C'est presque comme une m\u00e9ditation, ce moment pr\u00e9cieux o\u00f9 l'on \u00e9coute son corps.",
+    },
+  ] as Review[],
+  social: {
+    title: "Contact & Instagram",
+    intro:
+      "Pour une s\u00e9ance d\u00e9couverte ou pour \u00e9changer sur la M\u00e9thode HH\u2122, le contact le plus direct se fait en DM sur Instagram.",
+    dmLabel: "DM pour s\u00e9ance d\u00e9couverte",
+    profileLabel: "Voir Instagram",
+    credentials: "Coach dipl\u00f4m\u00e9e BPJEPS",
+    method: "M\u00e9thode HH\u2122 \u2014 Hexis Harmonia",
+    location: "Paris : domicile - studio",
+    messageLabel: "Message sugg\u00e9r\u00e9",
+    messageIntro: "Si vous souhaitez gagner du temps, vous pouvez reprendre ce message pour d\u00e9marrer l'\u00e9change :",
+    deepLinkNote:
+      "Instagram ne permet pas ici un vrai message pr\u00e9rempli depuis le site. Le texte est pr\u00e9par\u00e9 pour garder la prise de contact simple et coh\u00e9rente.",
+  },
+  faq: [
+    {
+      question: "Comment se d\u00e9roule une s\u00e9ance d\u00e9couverte ?",
+      answer:
+        "La premi\u00e8re s\u00e9ance permet de comprendre votre posture, votre mani\u00e8re de bouger et vos objectifs. Hajare ajuste ensuite la s\u00e9ance pour poser des bases nettes et personnalis\u00e9es.",
+    },
+    {
+      question: "O\u00f9 suivre les cours ?",
+      answer:
+        "Les cours ont lieu \u00e0 Paris en studio, en club ou \u00e0 domicile selon les formats et les disponibilit\u00e9s du moment.",
+    },
+    {
+      question: "Quel est l'esprit de la m\u00e9thode ?",
+      answer:
+        "La M\u00e9thode HH\u2122 privil\u00e9gie la pr\u00e9cision, la qualit\u00e9 du geste et l'alignement. L'objectif est de construire un corps tonique, \u00e9l\u00e9gant et ma\u00eetris\u00e9, sans approche brutale ni logique bootcamp.",
+    },
+  ] as FaqItem[],
+  footer: {
+    zone: "Paris : domicile - studio",
+    tagline: "Coach dipl\u00f4m\u00e9e BPJEPS \u2022 M\u00e9thode HH\u2122 \u2014 Hexis Harmonia",
+    rights: `\u00a9 ${new Date().getFullYear()} Coach Hajare. Tous droits r\u00e9serv\u00e9s.`,
+  },
+};

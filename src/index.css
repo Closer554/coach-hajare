@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f6f2ec;
+  --paper: #fbf8f3;
+  --ink: #1f1a17;
+  --muted: #6f655c;
+  --taupe: #b69e8a;
+  --sand: #d8c7b6;
+  --accent: #c9a77d;
+  --line: rgba(31, 26, 23, 0.12);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 20%, rgba(201, 167, 125, 0.18), transparent 42%),
+    radial-gradient(circle at 85% 0%, rgba(182, 158, 138, 0.14), transparent 36%),
+    radial-gradient(circle at 70% 70%, rgba(216, 199, 182, 0.12), transparent 48%),
+    var(--bg);
+  font-family: "Inter", system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.24;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.05' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='0.27'/%3E%3C/svg%3E");
+}
+
+#root {
+  isolation: isolate;
+}
+
+.reviews-carousel-shell {
+  overflow-x: auto;
+  overflow-y: hidden;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  scrollbar-width: none;
+}
+
+.reviews-carousel-track {
+  display: flex;
+  width: max-content;
+  align-items: stretch;
+  gap: 1.5rem;
+  will-change: transform;
+}
+
+.reviews-carousel-shell::-webkit-scrollbar {
+  display: none;
+}
+
+.reviews-carousel-card {
+  width: min(86vw, 24rem);
+  flex: 0 0 auto;
+}
+
+.method-carousel-shell {
+  overflow-x: auto;
+  overflow-y: hidden;
+  mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
+  scrollbar-width: none;
+}
+
+.method-carousel-track {
+  display: flex;
+  width: max-content;
+  align-items: stretch;
+  gap: 1.5rem;
+  will-change: transform;
+}
+
+.method-carousel-shell::-webkit-scrollbar {
+  display: none;
+}
+
+.method-carousel-card {
+  width: min(84vw, 23rem);
+  flex: 0 0 auto;
+}
+
+.interactive-carousel {
+  cursor: grab;
+  touch-action: pan-x;
+  user-select: none;
+}
+
+.interactive-carousel.is-dragging {
+  cursor: grabbing;
+}
+
+.interactive-carousel.is-dragging * {
+  user-select: none;
+}
+
+@media (min-width: 640px) {
+  .reviews-carousel-card {
+    width: 26rem;
+  }
+
+  .method-carousel-card {
+    width: 23.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reviews-carousel-shell {
+    padding-bottom: 0.5rem;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .reviews-carousel-card {
+    scroll-snap-align: start;
+  }
+
+  .method-carousel-shell {
+    padding-bottom: 0.5rem;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .method-carousel-card {
+    scroll-snap-align: start;
+  }
+}
+
+@layer components {
+  .section-wrap {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .paper-card {
+    @apply rounded-[28px] border border-[var(--line)] bg-[var(--paper)] shadow-paper;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}

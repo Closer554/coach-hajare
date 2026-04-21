@@ -1,0 +1,7 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" rx="20" fill="#FBF8F3"/>
+  <rect x="1" y="1" width="62" height="62" rx="19" stroke="rgba(31,26,23,0.12)"/>
+  <circle cx="17" cy="18" r="14" fill="#D8C7B6" fill-opacity="0.45"/>
+  <circle cx="49" cy="47" r="13" fill="#C9A77D" fill-opacity="0.22"/>
+  <text x="50%" y="55%" text-anchor="middle" fill="#1F1A17" font-family="Playfair Display, serif" font-size="18" font-weight="600">HH</text>
+</svg>
