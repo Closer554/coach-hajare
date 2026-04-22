@@ -56,7 +56,7 @@ export const siteContent = {
     description:
       "Coach sportive dipl\u00f4m\u00e9e BPJEPS \u00e0 Paris : Pilates, posture et renforcement intelligent pour tonifier la silhouette en studio, club ou domicile.",
     canonicalPath: "/",
-    ogImage: "/hero.jpg",
+    ogImage: "/og.jpg",
     ogImageAlt: "Coach Hajare \u00e0 Paris, posture, silhouette tonique et allure ma\u00eetris\u00e9e",
     locale: "fr_FR",
     language: "fr-FR",
