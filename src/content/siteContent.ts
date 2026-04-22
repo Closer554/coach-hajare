@@ -33,6 +33,14 @@ export type FaqItem = {
   answer: string;
 };
 
+export type TariffOffer = {
+  name: string;
+  price: string;
+  description: string;
+  ctaLabel: string;
+  kind: "fixed" | "custom";
+};
+
 export const siteContent = {
   brand: {
     name: "Coach Hajare",
@@ -43,35 +51,94 @@ export const siteContent = {
       "Bonjour Hajare, je vous contacte pour une s\u00e9ance d\u00e9couverte. J'aimerais en savoir plus sur votre m\u00e9thode et vos disponibilit\u00e9s \u00e0 Paris.",
   },
   seo: {
-    title: "Coach Hajare | M\u00e9thode HH\u2122 \u2014 Posture, silhouette tonique et allure \u00e0 Paris",
+    siteUrl: "https://coach-hajare.fr",
+    title: "Coach Hajare | Coach sportive \u00e0 Paris, Pilates & posture",
     description:
-      "Coach dipl\u00f4m\u00e9e BPJEPS \u00e0 Paris. La M\u00e9thode HH\u2122 \u2014 Hexis Harmonia am\u00e9liore posture, tonus, alignement et allure, en studio, en club ou \u00e0 domicile.",
+      "Coach sportive dipl\u00f4m\u00e9e BPJEPS \u00e0 Paris : Pilates, posture et renforcement intelligent pour tonifier la silhouette en studio, club ou domicile.",
     canonicalPath: "/",
     ogImage: "/hero.jpg",
-    ogImageAlt: "Coach Hajare a Paris, posture, silhouette tonique et allure maitrisee",
+    ogImageAlt: "Coach Hajare \u00e0 Paris, posture, silhouette tonique et allure ma\u00eetris\u00e9e",
+    locale: "fr_FR",
+    language: "fr-FR",
+    keywords: [
+      "coach sportive Paris",
+      "coach Pilates Paris",
+      "coach posture Paris",
+      "renforcement intelligent Paris",
+      "cours Pilates Paris",
+      "coach BPJEPS Paris",
+      "M\u00e9thode HH",
+      "Hexis Harmonia",
+    ],
   },
   nav: [
     { id: "hero", label: "Accueil" },
+    { id: "tarifs", label: "Tarifs" },
     { id: "about", label: "\u00c0 propos" },
-    { id: "method", label: "M\u00e9thode" },
+    { id: "benefices", label: "B\u00e9n\u00e9fices" },
     { id: "pricing", label: "Planning" },
     { id: "reviews", label: "Avis" },
     { id: "social", label: "Contact" },
   ] as NavItem[],
   hero: {
     locationLabel: "Paris : domicile - studio",
-    kicker: "Coach dipl\u00f4m\u00e9e BPJEPS \u2022 M\u00e9thode HH\u2122",
-    title: "Retrouvez une posture forte, une silhouette tonique et une allure ma\u00eetris\u00e9e",
+    kicker: "Coach sportive dipl\u00f4m\u00e9e BPJEPS \u00e0 Paris",
+    title: "Je vous aide \u00e0 bouger mieux, vous tenir plus droite et vous sentir plus forte.",
     subtitle:
-      "Coach dipl\u00f4m\u00e9e BPJEPS, Hajare vous accompagne \u00e0 Paris avec sa M\u00e9thode HH\u2122 \u2014 Hexis Harmonia, une approche pr\u00e9cise du mouvement pour sculpter le corps, am\u00e9liorer la posture et r\u00e9v\u00e9ler une pr\u00e9sence plus align\u00e9e.",
+      "Je construis mes cours autour du Pilates, de la posture et du renforcement intelligent : moins de gestes inutiles, plus de pr\u00e9cision et de sensations justes.",
     reassurance: "Cours \u00e0 Paris en studio, en club ou \u00e0 domicile.",
-    primaryCtaLabel: "D\u00e9couvrir la m\u00e9thode",
+    primaryCtaLabel: "Voir les b\u00e9n\u00e9fices",
     secondaryCtaLabel: "DM pour s\u00e9ance d\u00e9couverte",
   },
+  tariffs: {
+    title: "Tarifs",
+    accent: "R\u00e9server",
+    subtitle:
+      "Les tarifs suivent les s\u00e9ances affich\u00e9es dans le planning : cours en studio ou en club, avec r\u00e9servation en DM.",
+    fixedLabel: "Cours planning",
+    customLabel: "Sur mesure",
+    offers: [
+      {
+        name: "Yoze-Meli\u00e1",
+        price: "19\u20ac",
+        description: "Lundi 18h45 - cours signature.",
+        ctaLabel: "R\u00e9server",
+        kind: "fixed",
+      },
+      {
+        name: "Club Lulu",
+        price: "19\u20ac",
+        description: "Mardi 7h45 et 9h00 - cours signature.",
+        ctaLabel: "R\u00e9server",
+        kind: "fixed",
+      },
+      {
+        name: "Studio Sensa",
+        price: "19\u20ac",
+        description: "Mercredi 8h15 - cours signature.",
+        ctaLabel: "R\u00e9server",
+        kind: "fixed",
+      },
+      {
+        name: "Usine Saint-Lazare",
+        price: "19\u20ac",
+        description: "Mercredi soir - Posture, Burn and Strength, Core Ballet.",
+        ctaLabel: "R\u00e9server",
+        kind: "fixed",
+      },
+      {
+        name: "Usine Op\u00e9ra",
+        price: "19\u20ac",
+        description: "Jeudi soir - Pilates et Boxe.",
+        ctaLabel: "R\u00e9server",
+        kind: "fixed",
+      },
+    ] as TariffOffer[],
+  },
   presentation: {
-    greeting: "COACH HAJARE\nM\u00c9THODE HH\u2122",
+    greeting: "Je suis Hajare.",
     description:
-      "Coach dipl\u00f4m\u00e9e BPJEPS, Hajare accompagne un travail du mouvement pr\u00e9cis, \u00e9l\u00e9gant et intelligent, pens\u00e9 pour redresser la posture, tonifier la silhouette et affiner l'allure.\n\nChaque s\u00e9ance s'appuie sur le contr\u00f4le, l'alignement et la conscience corporelle pour construire un corps plus fort, plus stable et plus confiant, sans brutalit\u00e9 ni effets de mode.",
+      "J'accompagne chaque \u00e9l\u00e8ve avec une attention simple : un corps mieux plac\u00e9, un mouvement plus propre, une progression qui reste fluide et durable.",
     quickInfo: [
       "Approche : posture, tonus, alignement et pr\u00e9cision du mouvement",
       "Paris : domicile - studio",
@@ -79,16 +146,11 @@ export const siteContent = {
     portraitAlt: "Coach Hajare",
     portraitSrc: "/hero.jpg",
   },
-  method: {
+  benefitsSection: {
+    title: "Accompagnements & b\u00e9n\u00e9fices",
+    accent: "Corps",
     subtitle:
-      "Une signature de mouvement qui conjugue pr\u00e9cision, pr\u00e9sence corporelle et renforcement intelligent.",
-    signatureTitle: "Faire mieux, pas plus.",
-    body:
-      "La M\u00e9thode HH\u2122 \u2014 Hexis Harmonia est une approche du mouvement qui ne cherche pas \u00e0 faire plus, mais \u00e0 faire mieux. Chaque geste est pens\u00e9, chaque posture a un r\u00f4le, chaque s\u00e9ance vise un corps plus fort, plus tonique, plus \u00e9l\u00e9gant et mieux align\u00e9.",
-    detail:
-      "Le travail associe respiration, contr\u00f4le et intensit\u00e9 ma\u00eetris\u00e9e pour transformer la mani\u00e8re de se tenir, de bouger et d'habiter son corps avec plus de nettet\u00e9, de stabilit\u00e9 et de fluidit\u00e9.",
-    note:
-      "L'accompagnement cherche moins l'accumulation que la justesse : des seances precises, un rythme maitrise, et une transformation qui se construit avec finesse.",
+      "Un aper\u00e7u clair de ce que le travail peut transformer : posture, tonus, allure, mobilit\u00e9 et confiance corporelle.",
   },
   services: [
     {
@@ -191,7 +253,7 @@ export const siteContent = {
       ],
     },
   ] as ScheduleDay[],
-  scheduleNote: "Cours \u00e0 Paris en studio, en club ou \u00e0 domicile.",
+  scheduleNote: "Cours de Pilates, posture et renforcement \u00e0 Paris en studio, en club ou \u00e0 domicile.",
   reviews: [
     {
       name: "\u00c9l\u00e8ve du Meli\u00e1",
@@ -215,11 +277,10 @@ export const siteContent = {
   social: {
     title: "Contact & Instagram",
     intro:
-      "Pour une s\u00e9ance d\u00e9couverte ou pour \u00e9changer sur la M\u00e9thode HH\u2122, le contact le plus direct se fait en DM sur Instagram.",
+      "Pour une s\u00e9ance d\u00e9couverte ou pour \u00e9changer sur vos objectifs, le contact le plus direct se fait en DM sur Instagram.",
     dmLabel: "DM pour s\u00e9ance d\u00e9couverte",
     profileLabel: "Voir Instagram",
     credentials: "Coach dipl\u00f4m\u00e9e BPJEPS",
-    method: "M\u00e9thode HH\u2122 \u2014 Hexis Harmonia",
     location: "Paris : domicile - studio",
     messageLabel: "Message sugg\u00e9r\u00e9",
     messageIntro: "Si vous souhaitez gagner du temps, vous pouvez reprendre ce message pour d\u00e9marrer l'\u00e9change :",
@@ -238,14 +299,14 @@ export const siteContent = {
         "Les cours ont lieu \u00e0 Paris en studio, en club ou \u00e0 domicile selon les formats et les disponibilit\u00e9s du moment.",
     },
     {
-      question: "Quel est l'esprit de la m\u00e9thode ?",
+      question: "Qu'est-ce que la M\u00e9thode HH\u2122 ?",
       answer:
-        "La M\u00e9thode HH\u2122 privil\u00e9gie la pr\u00e9cision, la qualit\u00e9 du geste et l'alignement. L'objectif est de construire un corps tonique, \u00e9l\u00e9gant et ma\u00eetris\u00e9, sans approche brutale ni logique bootcamp.",
+        "C'est le nom donn\u00e9 \u00e0 l'approche de Hajare : un travail pr\u00e9cis, centr\u00e9 sur l'alignement, la respiration et le contr\u00f4le, pour renforcer le corps sans forcer inutilement.",
     },
   ] as FaqItem[],
   footer: {
     zone: "Paris : domicile - studio",
-    tagline: "Coach dipl\u00f4m\u00e9e BPJEPS \u2022 M\u00e9thode HH\u2122 \u2014 Hexis Harmonia",
+    tagline: "Coach dipl\u00f4m\u00e9e BPJEPS \u2022 Pilates, posture & renforcement intelligent",
     rights: `\u00a9 ${new Date().getFullYear()} Coach Hajare. Tous droits r\u00e9serv\u00e9s.`,
   },
 };

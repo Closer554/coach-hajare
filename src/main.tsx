@@ -1,10 +1,25 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 
-createRoot(document.getElementById('root')!).render(
+const app = (
   <StrictMode>
     <App />
-  </StrictMode>,
+  </StrictMode>
 )
+
+const rootElement = document.getElementById('root')
+
+if (!rootElement) {
+  throw new Error('Root element not found')
+}
+
+const hasPrerenderedHtml = rootElement.innerHTML.trim() !== '' && !rootElement.innerHTML.includes('app-html')
+
+if (hasPrerenderedHtml) {
+  hydrateRoot(rootElement, app)
+} else {
+  rootElement.innerHTML = ''
+  createRoot(rootElement).render(app)
+}

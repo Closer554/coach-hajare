@@ -35,6 +35,7 @@ export function Reviews() {
                   <article
                     key={`${review.name}-${review.context}-${index}`}
                     aria-hidden={isDuplicate}
+                    data-nosnippet={isDuplicate ? true : undefined}
                     className="reviews-carousel-card"
                   >
                     <motion.div
@@ -58,9 +59,6 @@ export function Reviews() {
                             {review.context}
                           </p>
                         </div>
-                        <span className="rounded-full border border-[var(--line)] bg-[rgba(216,199,182,.22)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--ink)]">
-                          {"HH\u2122"}
-                        </span>
                       </div>
                     </motion.div>
                   </article>

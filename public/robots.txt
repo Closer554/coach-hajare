@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://coach-hajare.fr/sitemap.xml

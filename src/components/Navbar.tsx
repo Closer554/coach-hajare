@@ -48,6 +48,7 @@ export function Navbar() {
             <li key={item.id}>
               <a
                 href={`#${item.id}`}
+                aria-current={activeId === item.id ? "page" : undefined}
                 className={`relative text-sm font-medium transition ${activeId === item.id ? "text-[var(--ink)]" : "text-[var(--muted)] hover:text-[var(--ink)]"}`}
               >
                 {item.label}

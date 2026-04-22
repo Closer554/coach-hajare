@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { siteContent } from "../content/siteContent";
+import { absoluteUrl, buildStructuredData, getCanonicalUrl, getOgImageUrl, robotsContent } from "../lib/seo";
 
 function upsertMeta(attribute: "name" | "property", key: string, content: string) {
   let element = document.head.querySelector(`meta[${attribute}="${key}"]`) as HTMLMetaElement | null;
@@ -32,109 +33,50 @@ function upsertLink(rel: string, href: string, extraAttribute?: { name: string; 
   element.setAttribute("href", href);
 }
 
-function buildAbsoluteUrl(path: string) {
-  return new URL(path, window.location.origin).toString();
-}
-
 export function Seo() {
   useEffect(() => {
-    const currentUrl = window.location.href.split("#")[0];
-    const ogImageUrl = buildAbsoluteUrl(siteContent.seo.ogImage);
-    const robotsValue = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1";
+    const canonicalUrl = getCanonicalUrl();
+    const ogImageUrl = getOgImageUrl();
 
     document.title = siteContent.seo.title;
 
     upsertMeta("name", "description", siteContent.seo.description);
+    upsertMeta("name", "keywords", siteContent.seo.keywords.join(", "));
     upsertMeta("name", "author", siteContent.brand.name);
-    upsertMeta("name", "robots", robotsValue);
-    upsertMeta("name", "googlebot", robotsValue);
+    upsertMeta("name", "robots", robotsContent);
+    upsertMeta("name", "googlebot", robotsContent);
     upsertMeta("name", "theme-color", "#f6f2ec");
+    upsertMeta("name", "color-scheme", "light");
+    upsertMeta("name", "application-name", siteContent.brand.name);
+    upsertMeta("name", "apple-mobile-web-app-title", siteContent.brand.name);
     upsertMeta("name", "format-detection", "telephone=no");
     upsertMeta("name", "twitter:card", "summary_large_image");
     upsertMeta("name", "twitter:title", siteContent.seo.title);
     upsertMeta("name", "twitter:description", siteContent.seo.description);
     upsertMeta("name", "twitter:image", ogImageUrl);
+    upsertMeta("name", "twitter:image:alt", siteContent.seo.ogImageAlt);
     upsertMeta("name", "twitter:site", siteContent.brand.instagramHandle);
 
     upsertMeta("property", "og:type", "website");
-    upsertMeta("property", "og:locale", "fr_FR");
+    upsertMeta("property", "og:locale", siteContent.seo.locale);
     upsertMeta("property", "og:site_name", siteContent.brand.name);
     upsertMeta("property", "og:title", siteContent.seo.title);
     upsertMeta("property", "og:description", siteContent.seo.description);
-    upsertMeta("property", "og:url", currentUrl);
+    upsertMeta("property", "og:url", canonicalUrl);
     upsertMeta("property", "og:image", ogImageUrl);
+    upsertMeta("property", "og:image:secure_url", ogImageUrl);
     upsertMeta("property", "og:image:alt", siteContent.seo.ogImageAlt);
     upsertMeta("property", "og:image:type", "image/jpeg");
+    upsertMeta("property", "og:image:width", "1080");
+    upsertMeta("property", "og:image:height", "1080");
 
-    upsertLink("canonical", currentUrl);
-    upsertLink("alternate", currentUrl, { name: "hreflang", value: "fr-FR" });
+    upsertLink("canonical", canonicalUrl);
+    upsertLink("alternate", canonicalUrl, { name: "hreflang", value: siteContent.seo.language });
+    upsertLink("alternate", canonicalUrl, { name: "hreflang", value: "x-default" });
+    upsertLink("manifest", absoluteUrl("/site.webmanifest"));
   }, []);
 
-  const currentUrl = typeof window !== "undefined" ? window.location.href.split("#")[0] : siteContent.seo.canonicalPath;
-  const imageUrl = typeof window !== "undefined" ? buildAbsoluteUrl(siteContent.seo.ogImage) : siteContent.seo.ogImage;
-
-  const structuredData = [
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      name: siteContent.brand.name,
-      jobTitle: "Coach diplomee BPJEPS",
-      description: siteContent.seo.description,
-      areaServed: "Paris",
-      sameAs: [siteContent.brand.instagramUrl],
-      knowsAbout: [
-        "posture",
-        "pilates",
-        "silhouette tonique",
-        "alignement",
-        "controle du mouvement",
-        "renforcement intelligent",
-      ],
-      image: imageUrl,
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      name: "Methode HH - Hexis Harmonia",
-      serviceType: "Coaching postural, pilates et renforcement intelligent",
-      description: siteContent.method.body,
-      areaServed: {
-        "@type": "City",
-        name: "Paris",
-      },
-      provider: {
-        "@type": "Person",
-        name: siteContent.brand.name,
-      },
-      availableChannel: {
-        "@type": "ServiceChannel",
-        serviceLocation: {
-          "@type": "City",
-          name: "Paris",
-        },
-      },
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: siteContent.faq.map((item) => ({
-        "@type": "Question",
-        name: item.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: item.answer,
-        },
-      })),
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      name: siteContent.seo.title,
-      description: siteContent.seo.description,
-      inLanguage: "fr-FR",
-      url: currentUrl,
-    },
-  ];
+  const structuredData = buildStructuredData();
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />;
 }

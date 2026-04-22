@@ -22,7 +22,7 @@ export function Pricing() {
       <div className="section-wrap">
         <Reveal>
           <SectionTitle
-            title={"Planning \u00e0 Paris"}
+            title={"Planning des cours de Pilates et posture \u00e0 Paris"}
             accent="Paris"
             subtitle={"Retrouvez les cours par jour dans une lecture claire et mobile-friendly."}
             align="center"

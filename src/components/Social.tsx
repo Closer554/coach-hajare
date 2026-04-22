@@ -51,7 +51,7 @@ export function Social() {
               </p>
             </div>
 
-            <h3 className="mt-8 font-serif text-2xl font-semibold">Informations</h3>
+            <h3 className="mt-8 font-serif text-2xl font-semibold">FAQ</h3>
             <div className="mt-6 space-y-3">
               {siteContent.faq.map((item) => (
                 <details
